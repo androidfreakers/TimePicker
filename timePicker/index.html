@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	<link type="text/css" rel="stylesheet" href="css/timepicker.css"></link>
+	</head>
+	<body>
+		<div id="timePicker">
+		</div>
+	</body>
+	<script src="js/libs/jquery-2.0.3.min.js"></script>
+	<script src="js/libs/jquery-ui-1.10.4.custom.min.js"></script>
+	<script src="js/timepicker.js"></script>
+	<script type="text/javascript">
+		var s = $("#timePicker").TimePicker({
+						
+						'callBack':function(obj){
+							console.log(obj);
+						}
+					});
+	</script>
+</html>

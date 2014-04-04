@@ -1,0 +1,241 @@
+.TimePicker{
+	position:relative;
+	width:280px;
+	height:320px;
+	background: #F5F5F5;
+	border: 1px solid rgba(0,0,0,.1);
+}
+
+.TimePicker .timeTitle{
+	height: 12.5%;
+	font-size: 1.4em;
+	font-weight: bold;
+	line-height: 40px;
+	background: rgba(150,150,150,0.2);
+}
+.TimePicker .timeTitle .hourText, .TimePicker .timeTitle .minuteText{
+	cursor: pointer;
+}
+
+.TimePicker .timeTitle .hourText, .TimePicker .timeTitle .minuteText, .TimePicker .timeTitle .ampmText{
+	text-shadow: 0 1px 0px #FFF, 0 -1px 0 #FFF, 1px 0 0 #FFf, -1px 0 0 #FFF;
+	padding-left: 3px;
+	padding-right: 3px;
+	display: inline-block;
+	vertical-align: middle;
+	width:30px;
+}
+.TimePicker .timeTitle .ampmText{
+	font-size: .6em;
+	width: 20px;
+	height: 35px;
+}
+.TimePicker .timeTitle .hourText.active, .TimePicker .timeTitle .minuteText.active{
+	-webkit-animation: textAnimate 0.2s;
+	color:#00f;
+}
+
+@-webkit-keyframes textAnimate
+{
+ 0% 	{
+		text-shadow: 0 1px 0px #FFF, 0 -1px 0 #FFF, 1px 0 0 #FFf, -1px 0 0 #FFF;
+		font-size: 1em;
+	}
+ 50% 	{
+		text-shadow: 0 2px 0px #FFF, 0 -2px 0 #FFF, 2px 0 0 #FFf, -2px 0 0 #FFF, 0 0 10px #FFF;
+		font-size: 1.1em;
+	}
+ 100%	{
+		text-shadow: 0 1px 0px #FFF, 0 -1px 0 #FFF, 1px 0 0 #FFf, -1px 0 0 #FFF;
+		font-size: 1em;
+	}
+}
+.TimePicker .separate{
+	width:90%;
+	margin-left:5%;
+	border-top:1px solid rgba(0,0,0,0.1);
+	display: none;
+}
+.TimePicker .pickerPanel{
+	height: 75%;
+	width:100%;
+}
+.TimePicker .pickerPanel .amPicker{
+	width:20%;
+	height:100%;
+	float:left;
+	position: relative;
+}
+.TimePicker .pickerPanel .amPicker .amSelector{
+	position: absolute;
+	bottom: 8px;
+	font-size: 18px;
+	line-height: 40px;
+	width: 70%;
+	height: 17%;
+	border-radius: 50%;
+	text-align: center;
+	right: 0%;
+	background: rgba(255,255,255,1);
+	cursor:pointer;
+	font-weight: bold;
+}
+.TimePicker .pickerPanel .amPicker .amSelector.active{
+	background: rgba(0,205,205,0.5);
+	text-shadow: 0 1px 0px #FFF, 0 -1px 0 #FFF, 1px 0 0 #FFf, -1px 0 0 #FFF;
+}
+.TimePicker .pickerPanel .hourMinutePicker{
+	width:60%;
+	height:100%;
+	float:left;
+	position: relative;
+}
+
+.TimePicker .pickerPanel .hourPicker, .TimePicker .pickerPanel .minutePicker{
+	position: absolute;
+	top: 15px;
+	left: -20px;
+	width: 100%;
+	height: 70%;
+	border-radius: 50%;
+	background: rgba(255,255,255,1);
+	padding: 20px;
+	display: none;
+	border: 1px solid rgba(138, 138, 138, 0.2);
+	box-shadow: 0 0 10px #5C5C5C inset;
+}
+.TimePicker .pickerPanel .hourPicker .hour{
+	position: absolute;
+	width:24px;
+	height:24px;
+	border-radius: 50%;
+	left:50%;
+	top: 50%;
+	line-height: 24px;
+	text-align: center;
+}
+.TimePicker .pickerPanel .hourPicker .hour.hilight{
+	background: rgba(255,255,255,0.5);
+}
+.TimePicker .pickerPanel .hourPicker .hour.active{
+	background: #000;
+	color: #FFF;
+}
+.TimePicker .pickerPanel .hourPicker .hour:hover{
+	cursor: pointer;
+}
+
+.TimePicker .pickerPanel .hourPicker .hour.selector{
+	position: absolute;
+	left:50% ;
+	top:50% ;
+	color:#FFF;
+	background: #000;
+}
+.TimePicker .pickerPanel .hourPicker .hour.selector.drag{
+	background: rgba(0,205,205,0.5);
+}
+.TimePicker .pickerPanel .hourPicker .hourNeedle:before{
+	content: "";
+	width:6px;
+	height:6px;
+	border-radius: 50%;
+	background: #000;
+	top:-3px;
+	left:-3px;
+	position: absolute;
+}
+.TimePicker .pickerPanel .hourPicker .hourNeedle{
+	position: absolute;
+	left: 50%;
+	top:50%;
+	width: 34%;
+	border-top:1px solid #000;
+	-webkit-transform: rotate(300deg);
+	-webkit-transform-origin: 0%;
+}
+
+.TimePicker .pickerPanel .minutePicker .minute{
+	position: absolute;
+	width:24px;
+	height:24px;
+	border-radius: 50%;
+	left:50%;
+	top: 50%;
+	line-height: 24px;
+	text-align: center;
+}
+
+.TimePicker .pickerPanel .minutePicker .minute.hilight{
+	background: rgba(255,255,255,0.5);
+}
+.TimePicker .pickerPanel .minutePicker .minute.active{
+	background: #000;
+	color: #FFF;
+}
+.TimePicker .pickerPanel .minutePicker .minute.visibleMinute{
+	z-index: 1;
+}
+.TimePicker .pickerPanel .minutePicker .minute.selector{
+	position: absolute;
+	left:50% ;
+	top:50% ;
+	color: #FFF;
+	z-index:2;
+}
+.TimePicker .pickerPanel .minutePicker .minute.selector.drag{
+	background: rgba(0,205,205,0.5);
+}
+.TimePicker .pickerPanel .minutePicker .minuteNeedle:before{
+	content: "";
+	width:6px;
+	height:6px;
+	border-radius: 50%;
+	background: #000;
+	top:-3px;
+	left:-3px;
+	position: absolute;
+}
+.TimePicker .pickerPanel .minutePicker .minuteNeedle{
+	position: absolute;
+	left: 50%;
+	top:50%;
+	width: 34%;
+	border-top:1px solid #000;
+	-webkit-transform: rotate(300deg);
+	-webkit-transform-origin: 0%;
+}
+
+.TimePicker .pickerPanel .pmPicker{
+	width:20%;
+	height:100%;
+	float:left;
+	position: relative;
+}
+.TimePicker .pickerPanel .pmPicker .pmSelector{
+	position: absolute;
+	bottom: 8px;
+	font-size: 18px;
+	line-height: 40px;
+	width: 70%;
+	height: 17%;
+	border-radius: 50%;
+	text-align: center;
+	left: 0px;
+	background: rgba(255,255,255,1);
+	cursor:pointer;
+	font-weight: bold;
+}
+.TimePicker .pickerPanel .pmPicker .pmSelector.active{
+	background: rgba(0,205,205,0.5);
+	text-shadow: 0 1px 0px #FFF, 0 -1px 0 #FFF, 1px 0 0 #FFf, -1px 0 0 #FFF;
+}
+.TimePicker .done{
+	height: 12.5%;
+	font-size: 1.2em;
+	font-weight: bold;
+	line-height: 40px;
+	cursor: pointer;
+	background: rgba(150,150,150,0.2);
+	text-shadow: 0 1px 0px #FFF, 0 -1px 0 #FFF, 1px 0 0 #FFf, -1px 0 0 #FFF;
+}
